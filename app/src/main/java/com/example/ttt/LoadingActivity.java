@@ -3,32 +3,30 @@ package com.example.ttt;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import androidx.appcompat.app.AppCompatActivity;
 
-public class LoadingActivity extends AppCompatActivity {
+public class LoadingActivity extends Activity {
 
-    private static final long DELAY_DURATION = 2000; // 2 seconds
+    private static final int LOADING_DELAY = 2000; // Delay time for the loading simulation in milliseconds
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_loading);
 
-        // Start the MainActivity after a delay
+        // Simulate loading process with a delay
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                startMainActivity();
+                // Start the main activity after the loading delay
+                Intent intent = new Intent(LoadingActivity.this, StartActivity.class);
+                startActivity(intent);
+                finish();
             }
-        }, DELAY_DURATION);
-    }
-
-    private void startMainActivity() {
-        Intent intent = new Intent(this, MainActivity.class);
-        startActivity(intent);
-        finish(); // Finish the LoadingActivity so the user can't go back to it
+        }, LOADING_DELAY);
     }
 }

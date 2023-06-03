@@ -3,56 +3,175 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="horizontal"
     tools:context=".MainActivity"
-    android:background="#3BCACA">
+    android:background="#fff">
 <LinearLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:layout_weight="1"
     >
-    <TextView
+
+    <!-- score and assigned images corner-->
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/title"
-        android:text="Tic Toc Toe"
-        android:fontFamily="casual"
-        android:textSize="55sp"
-        android:textStyle="bold"
-android:gravity="center"
-        style="@style/Animation.Design.BottomSheetDialog"
-        android:layout_gravity="center"
-        android:textColor="#F9FDF9"
-        android:layout_marginTop="50dp"/>
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/winner"
-        android:fontFamily="casual"
-        android:textSize="35sp"
-        android:textStyle="bold"
-        android:layout_marginLeft="60dp"
-        style="@style/Animation.Design.BottomSheetDialog"
-        android:layout_gravity="center"
-        android:textColor="@android:color/holo_orange_dark"
-        />
-    <Button
-        android:id="@+id/new_game_button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="6dp"
         android:layout_marginTop="100dp"
-        android:layout_gravity="center"
-        android:layout_marginLeft="20dp"
-        android:text="New Game"
-        android:onClick="startNewGame"
-        android:background="@drawable/button_background"
-        android:textColor="@color/white"
-        android:textStyle="bold"
-        android:textSize="25dp"
-        android:visibility="gone"
-        android:fontFamily="casual"
+        android:layout_marginBottom="60dp"
+        android:padding="20dp"
+        android:id="@+id/rl"
+        >
+
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_alignBottom="@+id/cardscore"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        >
+
+        <ImageView
+            android:id="@+id/userLogo"
+            android:layout_width="40dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/user" />
+
+        <ImageView
+            android:id="@+id/playerOptionImageView"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="5dp"
+            android:layout_alignBottom="@+id/userLogo"
+            android:layout_marginBottom="8dp"
+            android:layout_toRightOf="@+id/userLogo"
+            />
+    </RelativeLayout>
+
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardscore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:outlineSpotShadowColor="#C60D83"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="5dp">
+
+        <RelativeLayout
+            android:layout_width="75dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp">
+
+            <TextView
+                android:id="@+id/playerScoreTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:gravity="center_vertical"
+                android:text="0"
+                android:textColor="#049AB5"
+                android:textSize="25sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tiret"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginRight="10dp"
+                android:gravity="center"
+                android:text="-"
+                android:textColor="#049AB5"
+                android:textSize="25sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/computerScoreTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_toRightOf="@+id/playerScoreTextView"
+                android:gravity="right"
+                android:text="0"
+                android:textColor="#049AB5"
+                android:textSize="25sp"
+                android:textStyle="bold" />
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignBottom="@+id/cardscore"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp">
+
+        <ImageView
+            android:id="@+id/computerOptionImageView"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginRight="5dp"
+
+            />
+
+        <ImageView
+            android:id="@+id/computersymgol"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/computerOptionImageView"
+            android:layout_toRightOf="@+id/computerOptionImageView"
+            android:src="@drawable/monitor"
+
+            />
+    </RelativeLayout>
+    </RelativeLayout>
+    <!-- score and assigned images corner-->
+
+    <RelativeLayout android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/rl2"
+        android:layout_below="@+id/L1"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="40dp"
+        >
+
+
+
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/restart"
+                android:elevation = "40dp"
+                android:id="@+id/restart"
+
+
+                android:visibility="invisible"
+                android:layout_marginLeft="30dp"
+                android:layout_marginBottom="10dp"
+                android:layout_alignParentBottom="true"/>
+
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/back"
+                android:elevation = "40dp"
+
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="@dimen/card_margin_lef"
+                android:layout_marginBottom="10dp"
+                android:id="@+id/back"/>
+
+
+    </RelativeLayout>
         />
 </LinearLayout>
     <LinearLayout
@@ -60,6 +179,7 @@ android:gravity="center"
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:layout_weight="1"
+
         >
     <androidx.cardview.widget.CardView
         xmlns:android="http://schemas.android.com/apk/res/android"
@@ -67,10 +187,8 @@ android:gravity="center"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginLeft="@dimen/card_margin_lef"
-        android:layout_marginRight="30dp"
-android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"      android:layout_marginBottom="10dp"
 
         app:cardCornerRadius="5dp"
         app:cardElevation="5dp"

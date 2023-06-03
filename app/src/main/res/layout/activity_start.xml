@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- activity_loading.xml -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="#fff">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="74dp"
+        android:layout_marginTop="190dp"
+        android:orientation="horizontal"
+        android:id="@+id/radioGrp"
+        >
+
+
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/x_image"
+
+            android:id="@+id/img"/>
+
+
+        <Switch
+            android:id="@+id/switch_option"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+android:layout_centerInParent="true"
+            android:layout_marginStart="20dp"
+
+            android:layout_marginLeft="99dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="20dp"
+            android:scaleX="2"
+            android:scaleY="2" />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/o_image"
+
+            android:layout_alignParentRight="true"
+            android:id="@+id/img2"/>
+    </RelativeLayout>
+    <Button
+        android:id="@+id/start_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/play"
+        android:layout_gravity="center"
+        android:layout_marginTop="60dp"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+
+        android:textSize="45dp"
+        android:fontFamily="casual"
+        />
+</LinearLayout>
+
+

@@ -1,19 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#3BCACA"
-    tools:context=".LoadingActivity">
+    android:gravity="center"
+    android:background="#fff">
+   <LinearLayout
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:orientation="horizontal"
+       android:layout_centerHorizontal="true"
+       android:layout_marginBottom="100dp"
+       android:id="@+id/l1">
+       <ImageView
+           android:layout_width="50dp"
+           android:layout_height="50dp"
+           android:src="@drawable/x_image"
 
-    <TextView
+           android:elevation="40dp"
+           />
+       <ImageView
+           android:layout_width="50dp"
+           android:layout_height="50dp"
+android:src="@drawable/o_image"
+
+           android:elevation="40dp"
+           />
+   </LinearLayout>
+
+
+    <ProgressBar
+        android:id="@+id/progress_bar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_below="@+id/l1"
+        android:indeterminate="true"
+        android:scaleX="1.5"
+        android:progressBackgroundTint="#FB8C00"
+        android:scaleY="1.5"/>
+
+
+    <TextView
+        android:layout_centerInParent="true"
+        android:id="@+id/loading_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/progress_bar"
         android:text="Loading..."
-        android:textSize="50sp"
-        android:textStyle="bold"
-        android:fontFamily="casual"
-        android:textColor="#FFA500"
-        android:layout_centerInParent="true" />
+        android:textSize="16sp"
+        android:textColor="@android:color/black"
+        android:layout_marginTop="8dp" />
 
 </RelativeLayout>
