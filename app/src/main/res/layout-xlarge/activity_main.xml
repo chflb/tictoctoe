@@ -4,8 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="#fff"
-    tools:context=".MainActivity">
+    tools:context="com.devsimplified.xo.MainActivity">
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -69,7 +68,7 @@
             app:cardElevation="5dp">
 
             <RelativeLayout
-                android:layout_width="155dp"
+                android:layout_width="205dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp">
@@ -94,7 +93,7 @@
                     android:gravity="center"
                     android:text="-"
                     android:textColor="#049AB5"
-                    android:textSize="50sp"
+                    android:textSize="60sp"
                     android:textStyle="bold" />
 
                 <TextView
@@ -102,9 +101,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
-                    android:layout_toRightOf="@+id/playerScoreTextView"
+                    android:layout_toRightOf="@+id/tiret"
                     android:gravity="right"
                     android:text="0"
+                    android:background="#fff"
                     android:textColor="#049AB5"
                     android:textSize="50sp"
                     android:textStyle="bold" />
@@ -145,8 +145,8 @@
 android:layout_below="@id/rl"
     android:layout_height="wrap_content"
     android:id="@+id/L1"
-    android:layout_marginLeft="95dp"
-    android:layout_marginRight="95dp"
+    android:layout_marginLeft="120dp"
+    android:layout_marginRight="120dp"
       >
     <androidx.cardview.widget.CardView
 
@@ -161,24 +161,24 @@ android:layout_below="@id/rl"
         android:layout_centerInParent="true"
         android:layout_marginLeft="5dp"
         android:layout_marginRight="5dp"
-android:outlineSpotShadowColor="#C60D83"
+        android:background="@drawable/grid_gradiant"
+
+        android:outlineSpotShadowColor="#F57F17"
         app:cardCornerRadius="5dp"
         app:cardElevation="5dp"
         android:id="@+id/card2"
         android:layout_below="@+id/winner">
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center">
+
     <GridView
         android:id="@+id/gridview"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:numColumns="3"
-        android:horizontalSpacing="6dp"
-        android:verticalSpacing="6dp"
+
+        android:horizontalSpacing="0dp"
+
+        android:verticalSpacing="0dp"
         android:gravity="center"/>
-        </LinearLayout>
     </androidx.cardview.widget.CardView>
 </LinearLayout>
    <RelativeLayout android:layout_width="match_parent"

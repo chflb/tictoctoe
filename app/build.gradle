@@ -5,24 +5,34 @@ plugins {
 android {
 
 
-    namespace 'com.example.ttt'
+    namespace 'com.devsimplified.xo'
     compileSdk 33
 
+    bundle {
+        language {
+            enableSplit = false
+        }
+        density {
+            enableSplit = true
+        }
+        // Other configuration settings...
+    }
     defaultConfig {
-        applicationId "com.example.ttt"
+        applicationId "com.devsimplified.xo"
         minSdk 21
         targetSdk 33
-        versionCode 1
-        versionName "1.0"
+        versionCode 2
+        versionName "2.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        signingConfig signingConfigs.debug
     }
 
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-            debuggable true
+            debuggable false
             signingConfig signingConfigs.debug
 
         }

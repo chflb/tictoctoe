@@ -4,8 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="#fff"
-    tools:context=".MainActivity">
+    tools:context="com.devsimplified.xo.MainActivity">
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -64,7 +63,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:outlineSpotShadowColor="#C60D83"
+            android:outlineSpotShadowColor="#fff"
             app:cardCornerRadius="16dp"
             app:cardElevation="5dp">
 
@@ -156,8 +155,7 @@ android:layout_below="@id/rl"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-android:background="#FADDFF"
-android:outlineSpotShadowColor="#C60D83"
+android:outlineSpotShadowColor="#FF6F00"
         app:cardCornerRadius="5dp"
         app:cardElevation="5dp"
         android:id="@+id/card2"
@@ -168,12 +166,13 @@ android:outlineSpotShadowColor="#C60D83"
             android:gravity="center">
     <GridView
         android:id="@+id/gridview"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="wrap_content"
+
+        android:layout_height="wrap_content"
         android:numColumns="3"
         android:layout_gravity="center"
         android:horizontalSpacing="0dp"
-        android:verticalSpacing="6dp"
+        android:verticalSpacing="0dp"
        />
         </LinearLayout>
     </androidx.cardview.widget.CardView>

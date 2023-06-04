@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="16dp">
+    android:padding="16dp"
+    android:background="#fff">
 
 
     <RelativeLayout
@@ -14,6 +15,7 @@
         android:orientation="horizontal"
         android:layout_marginRight="150dp"
         android:layout_marginLeft="150dp"
+        android:layout_marginTop="40dp"
         android:id="@+id/radioGrp"
         >
 
