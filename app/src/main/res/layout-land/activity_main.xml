@@ -6,7 +6,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="horizontal"
     tools:context="com.devsimplified.xo.MainActivity"
-   >
+    >
 <LinearLayout
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
@@ -45,7 +45,6 @@
             android:layout_height="40dp"
             android:layout_marginLeft="5dp"
             android:layout_alignBottom="@+id/userLogo"
-            android:layout_marginBottom="8dp"
             android:layout_toRightOf="@+id/userLogo"
             />
     </RelativeLayout>
@@ -187,10 +186,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-
         android:background="#fff"
         android:outlineSpotShadowColor="#FF6F00"
-
         app:cardCornerRadius="5dp"
         app:cardElevation="5dp"
         android:id="@+id/card2"

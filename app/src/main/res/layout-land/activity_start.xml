@@ -15,7 +15,6 @@
         android:orientation="horizontal"
         android:layout_marginRight="150dp"
         android:layout_marginLeft="150dp"
-        android:layout_marginTop="40dp"
         android:id="@+id/radioGrp"
         >
 
@@ -38,7 +37,6 @@
 
             android:layout_marginStart="20dp"
             android:layout_marginLeft="99dp"
-            android:layout_marginTop="20dp"
             android:layout_marginEnd="20dp"
             android:layout_marginBottom="20dp"
             android:scaleX="2"
@@ -52,13 +50,60 @@
             android:scaleY=".5"
             android:id="@+id/img2"/>
     </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="74dp"
+        android:orientation="horizontal"
+        android:id="@+id/level"
+        android:layout_marginRight="280dp"
+        android:layout_marginLeft="280dp"
+        >
+
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/x_image"
+            android:text="Easy"
+            android:textColor="#049AB5"
+            android:layout_marginLeft="20dp"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            android:layout_alignBottom="@+id/switch_option_level"
+            android:id="@+id/easy"/>
+
+
+        <Switch
+            android:id="@+id/switch_option_level"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+
+            android:layout_marginStart="20dp"
+            android:layout_marginLeft="99dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="20dp"
+            android:scaleX="1"
+            android:scaleY="1" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Difficult"
+            android:textColor="#049AB5"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            android:layout_alignParentRight="true"
+            android:layout_alignBottom="@+id/switch_option_level"
+            android:id="@+id/difficult"/>
+    </RelativeLayout>
     <Button
         android:id="@+id/start_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/play"
         android:layout_gravity="center"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="5dp"
         android:textColor="@color/white"
         android:textStyle="bold"
 

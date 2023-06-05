@@ -15,6 +15,8 @@ public class StartActivity extends AppCompatActivity {
 
     private RadioButton radioButtonX, radioButtonO;
     private Button startButton;
+    private String selectedOptionLevel;
+    char selectedOption;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -23,18 +25,24 @@ public class StartActivity extends AppCompatActivity {
         setContentView(R.layout.activity_start);
 
         Switch switchOption = findViewById(R.id.switch_option);
+        Switch switchOptionLevel = findViewById(R.id.switch_option_level);
+
         startButton = findViewById(R.id.start_button);
 
         startButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                char selectedOption;
                 if (switchOption.isChecked()) {
                     selectedOption = 'O';
                 } else {
                     selectedOption = 'X';
                 }
-                startGame(selectedOption);
+                if (switchOptionLevel.isChecked()) {
+                    selectedOptionLevel = "Difficult";
+                } else {
+                    selectedOptionLevel = "Easy";
+                }
+                startGame();
             }
         });
 
@@ -47,10 +55,11 @@ public class StartActivity extends AppCompatActivity {
 
     }
 
-    private void startGame(char selectedOption) {
+    private void startGame() {
         // Start the game with the selected option (X or O)
         Intent intent = new Intent(StartActivity.this, MainActivity.class);
         intent.putExtra("selectedOption", selectedOption);
+        intent.putExtra("selectedOptionLevel", this.selectedOptionLevel);
         startActivity(intent);
         finish();
     }

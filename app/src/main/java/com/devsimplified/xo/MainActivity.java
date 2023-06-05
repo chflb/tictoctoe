@@ -44,6 +44,8 @@ public class MainActivity extends AppCompatActivity {
     private int scorePlayer, scoreComputer;
     private static final String PLAYER_SCORE_KEY = "player_score";
     private static final String COMPUTER_SCORE_KEY = "computer_score";
+    private String selectedOptionLevel;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -78,6 +80,7 @@ back.setOnClickListener(new View.OnClickListener() {
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
             selectedOption = extras.getChar("selectedOption");
+            selectedOptionLevel = extras.getString("selectedOptionLevel");
         }
         game = new Game();
         if (savedInstanceState != null) {
@@ -201,10 +204,16 @@ back.setOnClickListener(new View.OnClickListener() {
 
 
     private void computerMove() {
-       // int position = game.getComputerMoveWeakLevel();
-        int position = game.getComputerMoveAdvancedLevel2();
-        game.makeMove(position);
-        Log.d("Computer Move", "Position: " + position);
+        int positionDifficult = game.getComputerMoveAdvancedLevel();
+        int positionEasy = game.getComputerMoveAdvancedLevel2();
+
+        if (selectedOptionLevel.equals("Easy")){
+            game.makeMove(positionEasy);
+        } else if (selectedOptionLevel.equals("Difficult")){
+                game.makeMove(positionDifficult);
+            }
+
+       // Log.d("Computer Move", "Position: " + position);
 
         gameAdapter.notifyDataSetChanged();
         playSound(soundClick);
