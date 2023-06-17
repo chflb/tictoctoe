@@ -55,36 +55,91 @@ public class GameAdapter extends BaseAdapter {
             int screenWidth = displayMetrics.widthPixels;
             int screenHeight = displayMetrics.heightPixels;
             int desiredSize ;// Divide by 3 for 3x3 grid
-            if (context.getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
+           /* if (context.getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
                 // Landscape mode
-                  if (context.getResources().getConfiguration().smallestScreenWidthDp >= 600) {
+                if (context.getResources().getConfiguration().smallestScreenWidthDp >= 600) {
                     // Tablet device
                     desiredSize = (int) (Math.min(screenWidth, screenHeight) / 3.9); // Adjust divisor for desired size
-                      imageView.setScaleX(0.7F);
-                      imageView.setScaleY(0.7F);
-                } else {
-                    // Smartphone device
+                    imageView.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
+                    imageView.setScaleX(0.7F);
+                    imageView.setScaleY(0.7F);
+                } else if (context.getResources().getConfiguration().smallestScreenWidthDp >= 400) {
+                    // Large smartphone device
                     desiredSize = (int) (Math.min(screenWidth, screenHeight) / 3.4); // Adjust divisor for desired size
-                      imageView.setScaleX(0.5F);
-                      imageView.setScaleY(0.5F);
+                    imageView.setScaleX(0.5F);
+                    imageView.setScaleY(0.5F);
+                } else {
+                    // Small smartphone device
+                    desiredSize = (int) (Math.min(screenWidth, screenHeight) / 3.3); // Adjust divisor for desired size
+                    imageView.setScaleX(0.5F);
+                    imageView.setScaleY(0.5F);
                 }
-               // desiredSize = (int) (Math.min(screenWidth, screenHeight) / 4); // Adjust divisor for desired size
-
-                // Apply specific behavior for landscape mode
-
-            } else if (context.getResources().getConfiguration().smallestScreenWidthDp >= 600) {
-                // Tablet device
-                desiredSize = (int) (Math.min(screenWidth, screenHeight) / 4.5); // Adjust divisor for desired size
-                imageView.setScaleX(0.7F);
-                imageView.setScaleY(0.7F);
             } else {
-                // Smartphone device
-                desiredSize = (int) (Math.min(screenWidth, screenHeight) / 3.0001); // Adjust divisor for desired size
-                imageView.setScaleX(0.5F);
-                imageView.setScaleY(0.5F);
+                // Portrait mode
+                if (context.getResources().getConfiguration().smallestScreenWidthDp >= 600) {
+                    // Tablet device
+                    desiredSize = (int) (Math.min(screenWidth, screenHeight) / 4.5); // Adjust divisor for desired size
+                    imageView.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
+                    imageView.setScaleX(0.7F);
+                    imageView.setScaleY(0.7F);
+                }
+                else if (context.getResources().getConfiguration().smallestScreenWidthDp >= 400) {
+                    // Large smartphone device
+                    desiredSize = (int) (Math.min(screenWidth, screenHeight) / 3.0001); // Adjust divisor for desired size
+                    imageView.setScaleX(0.5F);
+                    imageView.setScaleY(0.5F);
+                } else {
+                    // Small smartphone device
+                    desiredSize = (int) (Math.min(screenWidth, screenHeight) / 2.9); // Adjust divisor for desired size
+                    imageView.setScaleX(0.5F);
+                    imageView.setScaleY(0.5F);
+                }
+            }
+
+            */
+            int screenSize = context.getResources().getConfiguration().screenLayout &
+                    Configuration.SCREENLAYOUT_SIZE_MASK;
+
+            int densityDpi = context.getResources().getDisplayMetrics().densityDpi;
+
+            if (context.getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
+                // Landscape mode
+                if (screenSize == Configuration.SCREENLAYOUT_SIZE_XLARGE) {
+                    // xlarge screen size
+                    desiredSize = (int) (Math.min(screenWidth, screenHeight) / 3.9); // Adjust divisor for desired size
+                    imageView.setScaleX( 0.7F);
+                    imageView.setScaleY( 0.7F);
+                } else if (screenSize == Configuration.SCREENLAYOUT_SIZE_LARGE) {
+                    // large screen size
+                    desiredSize = (int) (Math.min(screenWidth, screenHeight) / 3.4); // Adjust divisor for desired size
+                    imageView.setScaleX( 0.5F);
+                    imageView.setScaleY( 0.5F);
+                } else {
+                    // small or normal screen size
+                    desiredSize = (int) (Math.min(screenWidth, screenHeight) / 3.2); // Adjust divisor for desired size
+                    imageView.setScaleX( 0.5F);
+                    imageView.setScaleY( 0.5F);
+                }
+            } else {
+                // Portrait mode
+                if (screenSize == Configuration.SCREENLAYOUT_SIZE_XLARGE) {
+                    // xlarge screen size
+                    desiredSize = (int) (Math.min(screenWidth, screenHeight) / 4.5); // Adjust divisor for desired size
+                    imageView.setScaleX( 0.7F);
+                    imageView.setScaleY( 0.7F);
+                } else if (screenSize == Configuration.SCREENLAYOUT_SIZE_LARGE) {
+                    // large screen size
+                    desiredSize = (int) (Math.min(screenWidth, screenHeight) / 3.0001); // Adjust divisor for desired size
+                    imageView.setScaleX( 0.5F);
+                    imageView.setScaleY( 0.5F);
+                } else {
+                    // small or normal screen size
+                    desiredSize = (int) (Math.min(screenWidth, screenHeight) / 2.9); // Adjust divisor for desired size
+                    imageView.setScaleX( 0.5F);
+                    imageView.setScaleY( 0.5F);
+                }
             }
             frameLayout.setLayoutParams(new ViewGroup.LayoutParams(desiredSize, desiredSize));
-
 
 
             frameLayout.setBackgroundResource(R.drawable.cell_stroke);

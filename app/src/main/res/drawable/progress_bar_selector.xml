@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_pressed="true">
+        <layer-list>
+            <!-- Customize the color for the progress bar -->
+            <item>
+                <shape>
+                    <solid android:color="#0EE0FB" />
+                </shape>
+            </item>
+            <!-- Include the default progress drawable -->
+            <item >
+                <shape >
+                    <solid android:color="#09D2F6" />
+                    <!-- Customize other properties as needed -->
+                </shape>
+            </item>
+        </layer-list>
+    </item>
+    <item>
+        <!-- Include the default progress drawable -->
+        <layer-list>
+            <item >
+                <shape>
+                    <solid android:color="#09D2F6" />
+                    <!-- Customize other properties as needed -->
+                </shape>
+            </item>
+        </layer-list>
+    </item>
+</selector>

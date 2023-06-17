@@ -7,6 +7,8 @@ import android.os.Bundle;
 
 import android.media.AudioManager;
 import android.media.SoundPool;
+import android.os.Handler;
+import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
@@ -15,7 +17,6 @@ import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.cardview.widget.CardView;
 
@@ -62,9 +63,16 @@ back=findViewById(R.id.back);
 restart.setOnClickListener(new View.OnClickListener() {
     @Override
     public void onClick(View v) {
+           // game.setPlayerStart(!game.isPlayerStarts());
+
         game.reset();
         //winnerDisplay.setVisibility(View.INVISIBLE);
         gameAdapter.notifyDataSetChanged();
+       if (!game.isPlayerStarts()) {
+           computerMove();
+          // game.setPlayerStart(true);
+       }
+
 
 
     }
@@ -118,56 +126,53 @@ back.setOnClickListener(new View.OnClickListener() {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 restart.setVisibility(View.VISIBLE);
                 if (game.isGameOver()) {
-                    //Toast.makeText(getApplicationContext(), "Please click on restart or back button", Toast.LENGTH_SHORT).show();
-                   // winnerDisplay.setVisibility(View.VISIBLE);
                     return;
                 }
                 if (!game.isCellEmpty(position)) {
                     return; // Cell is already occupied, ignore the click
                 }
-                if (game.isCellEmpty(position)) {
-                    game.makeMove(position);
-                    gameAdapter.notifyDataSetChanged();
-                    playSound(soundClick);
-                    if (!game.isGameOver()) {
-                        computerMove();
-                    }
-                    if (game.isGameOver()) {
-                       // winnerDisplay.setVisibility(View.VISIBLE);
+                game.makeMove(position);
+                gameAdapter.notifyDataSetChanged();
+                playSound(soundClick);
 
-                        if (game.getWinningLine() != null) {
-                            if (game.getSymbolAtPosition(game.getWinningLine()[0]) == selectedOption) {
-                                // Player wins
-                            //    winnerDisplay.setImageResource(R.drawable.like);
-                                playSound(soundFail);
-                                scorePlayer++;
-                                playerScoreTextView.setText(scorePlayer+"");
-                               // computerScoreTextView.setText("0");
-                            } else {
-                                // Computer wins
-                            //    winnerDisplay.setImageResource(R.drawable.dislike);
-                                playSound(soundFail);
-                                scoreComputer++;
-                                computerScoreTextView.setText(scoreComputer+"");
-                               // playerScoreTextView.setText("0");
-                            }
-                        }  else {
-                                //winnerDisplay.setImageResource(R.drawable.equity);
+                if (!game.isGameOver()) {
+                    new Handler().postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            computerMove();
+                        }
+                    }, 200);
+                } else {
+                    // The game is over, determine the winner
+                    if (game.getWinningLine() != null) {
+                        if (game.getSymbolAtPosition(game.getWinningLine()[0]) == selectedOption) {
+                            // Player wins
                             playSound(soundFail);
+                            scorePlayer++;
+                            playerScoreTextView.setText(String.valueOf(scorePlayer));
+                        } else {
+                            // Computer wins
+                            playSound(soundFail);
+                            scoreComputer++;
+                            computerScoreTextView.setText(String.valueOf(scoreComputer));
                         }
-                        }
+                    } else {
+                        // It's a tie
+                        playSound(soundFail);
                     }
 
+                    // Switch the player start for the next game
+                    game.setPlayerStart(!game.isPlayerStarts());
                 }
-
+            }
         });
-
         soundPool = new SoundPool(3, AudioManager.STREAM_MUSIC, 0);
         //soundStartGame = soundPool.load(this, R.raw.start_sound, 1);
         //soundWin = soundPool.load(this, R.raw.win_sound, 1);
         soundFail = soundPool.load(this, R.raw.fail_sound, 1);
 
         soundClick = soundPool.load(this, R.raw.click_sound, 1);
+
 
     }
 
@@ -200,24 +205,48 @@ back.setOnClickListener(new View.OnClickListener() {
         playerScoreTextView.setText( scorePlayer+"");
         computerScoreTextView.setText(scoreComputer+"");
     }
-
-
-
     private void computerMove() {
-        int positionDifficult = game.getComputerMoveAdvancedLevel();
-        int positionEasy = game.getComputerMoveAdvancedLevel2();
+        // Delay the computer's move by 500 milliseconds (0.5 seconds)
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                int positionDifficult = game.getComputerMoveAdvancedLevel();
+                int positionEasy = game.getComputerMoveWeakLevel();
 
-        if (selectedOptionLevel.equals("Easy")){
-            game.makeMove(positionEasy);
-        } else if (selectedOptionLevel.equals("Difficult")){
-                game.makeMove(positionDifficult);
+                if (selectedOptionLevel.equals("Easy")) {
+                    game.makeMove(positionEasy);
+                } else if (selectedOptionLevel.equals("Difficult")) {
+                    game.makeMove(positionDifficult);
+                }
+
+                gameAdapter.notifyDataSetChanged();
+                playSound(soundClick);
+
+                // Check if the game is over after the computer's move
+                if (game.isGameOver()) {
+                    // The game is over, determine the winner
+                    if (game.getWinningLine() != null) {
+                        if (game.getSymbolAtPosition(game.getWinningLine()[0]) == selectedOption) {
+                            // Player wins
+                            playSound(soundFail);
+                            scorePlayer++;
+                            playerScoreTextView.setText(String.valueOf(scorePlayer));
+                        } else {
+                            // Computer wins
+                            playSound(soundFail);
+                            scoreComputer++;
+                            computerScoreTextView.setText(String.valueOf(scoreComputer));
+                        }
+                    } else {
+                        // It's a tie
+                        playSound(soundFail);
+                    }
+
+                    // Switch the player start for the next game
+                    game.setPlayerStart(!game.isPlayerStarts());
+                }
             }
-
-       // Log.d("Computer Move", "Position: " + position);
-
-        gameAdapter.notifyDataSetChanged();
-        playSound(soundClick);
-
+        }, 200);
     }
 
 

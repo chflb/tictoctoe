@@ -27,34 +27,47 @@ public class Game implements Parcelable {
     private int playerScore;
     private int computerScore;
     private int difficultyLevel;
+    private boolean playerStarts;
 
     public Game() {
+        this.playerStarts = true; // Set player as the default starter
         board = new char[BOARD_SIZE];
         for (int i = 0; i < BOARD_SIZE; i++) {
             board[i] = ' ';
         }
-        playerTurn = true;
+        playerTurn = playerStarts;
         gameOver = false;
         random = new Random();
         playerScore = 0;
         computerScore = 0;
         difficultyLevel = DIFFICULTY_WEAK;
     }
+    public boolean isPlayerStarts() {
+        return playerStarts;
+    }
+    public void setPlayerStart(boolean s){
+        playerStarts=s;
+    }
 
     public void reset() {
         for (int i = 0; i < BOARD_SIZE; i++) {
             board[i] = ' ';
         }
-        playerTurn = true;
+        playerTurn = playerStarts;
         gameOver = false;
         winningLine = null;
     }
 
     public boolean isCellEmpty(int position) {
-        return board[position] == ' ';
-    }
+        if (position < 0 || position >= board.length) {
+            return false; // Invalid position, cell is not empty
+        }
+        return board[position] == ' ';    }
 
     public void makeMove(int position) {
+        if (position < 0 || position >= board.length) {
+            return; // Invalid position, cannot make move
+        }
         if (!isCellEmpty(position) || gameOver) {
             return;
         }
@@ -167,7 +180,7 @@ public class Game implements Parcelable {
         return -1;
     }
 
-    public int getComputerMoveAdvancedLevel2() {
+    public int getComputerMoveُEasyLevel() {
         List<Integer> emptyCells = new ArrayList<>();
         for (int i = 0; i < BOARD_SIZE; i++) {
             if (board[i] == ' ') {
@@ -318,7 +331,6 @@ public class Game implements Parcelable {
         computerScore = in.readInt();
         difficultyLevel = in.readInt();
     }
-
     @Override
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeCharArray(board);
@@ -336,10 +348,6 @@ public class Game implements Parcelable {
         dest.writeInt(computerScore);
         dest.writeInt(difficultyLevel);
     }
-
-
-
-
     public static final Parcelable.Creator<Game> CREATOR = new Parcelable.Creator<Game>() {
         @Override
         public Game createFromParcel(Parcel in) {

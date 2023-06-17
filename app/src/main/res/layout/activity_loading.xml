@@ -15,14 +15,12 @@
            android:layout_width="50dp"
            android:layout_height="50dp"
            android:src="@drawable/x_image"
-
            android:elevation="40dp"
            />
        <ImageView
            android:layout_width="50dp"
            android:layout_height="50dp"
-android:src="@drawable/o_image"
-
+           android:src="@drawable/o_image"
            android:elevation="40dp"
            />
    </LinearLayout>
@@ -32,12 +30,15 @@ android:src="@drawable/o_image"
         android:id="@+id/progress_bar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
         android:layout_below="@+id/l1"
+        android:layout_centerInParent="true"
         android:indeterminate="true"
-        android:scaleX="1.5"
         android:progressBackgroundTint="#FB8C00"
-        android:scaleY="1.5"/>
+        android:progressDrawable="@drawable/progress_bar_selector"
+        android:progressTint="#0EE0FB"
+        android:scaleX="1.5"
+        android:scaleY="1.5"
+        android:secondaryProgressTint="#0EE0FB" />
 
 
     <TextView

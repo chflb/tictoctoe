@@ -43,6 +43,7 @@
                     android:id="@+id/userLogo"
                     android:layout_width="40dp"
                     android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
                     android:src="@drawable/user" />
 
                 <ImageView
@@ -50,8 +51,8 @@
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:layout_marginLeft="5dp"
-                    android:layout_alignBottom="@+id/userLogo"
-                    android:layout_marginBottom="8dp"
+                    android:layout_alignParentBottom="true"
+
                     android:layout_toRightOf="@+id/userLogo"
                      />
             </RelativeLayout>
@@ -114,6 +115,7 @@
             <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_alignParentRight="true"
+                android:layout_alignBaseline="@+id/cardscore"
                 android:layout_alignBottom="@+id/cardscore"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
@@ -123,19 +125,19 @@
                     android:id="@+id/computerOptionImageView"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
+                    android:layout_alignBottom="@+id/computersymgol"
                     android:layout_marginRight="5dp"
 
                     />
 
                 <ImageView
                     android:id="@+id/computersymgol"
-                    android:layout_width="50dp"
-                    android:layout_height="wrap_content"
-                    android:layout_alignBottom="@+id/computerOptionImageView"
+                    android:layout_width="40dp"
+                    android:layout_height="47dp"
                     android:layout_toRightOf="@+id/computerOptionImageView"
                     android:src="@drawable/monitor"
 
-                   />
+                    />
             </RelativeLayout>
     </RelativeLayout>
     <!-- score and assigned images corner-->
