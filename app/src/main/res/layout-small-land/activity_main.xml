@@ -6,6 +6,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="horizontal"
     tools:context="com.devsimplified.xo.MainActivity"
+    android:background="#fff"
     >
 <LinearLayout
     android:layout_width="wrap_content"
@@ -142,7 +143,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_weight="2"
+        android:layout_weight="1.8"
         >
     <androidx.cardview.widget.CardView
         xmlns:android="http://schemas.android.com/apk/res/android"
@@ -162,8 +163,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:numColumns="3"
-        android:horizontalSpacing="0dp"
-        android:verticalSpacing="0dp"
+        android:background="@color/gridview_background"
+        android:horizontalSpacing="4dp"
+        android:verticalSpacing="4dp"
         android:gravity="center"/>
     </androidx.cardview.widget.CardView>
 

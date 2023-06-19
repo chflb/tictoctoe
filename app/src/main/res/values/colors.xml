@@ -7,6 +7,7 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="line_color">#FF0000</color> <!-- Set the desired line color -->
-
+    <color name="line_color">#FF0000</color>
+    <color name="gridview_background">#E8E8E8</color> <!-- Set the desired line color -->
+    <!--color name="gridview_background">#02AFF3</color-->
 </resources>

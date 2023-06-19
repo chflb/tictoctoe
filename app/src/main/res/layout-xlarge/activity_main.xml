@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+   android:background="#fff"
     tools:context="com.devsimplified.xo.MainActivity">
     <ImageView
         android:layout_width="match_parent"
@@ -165,9 +166,9 @@ android:layout_below="@id/rl"
         android:layout_marginRight="5dp"
         android:background="@drawable/grid_gradiant"
 
-        android:outlineSpotShadowColor="#F57F17"
-        app:cardCornerRadius="5dp"
-        app:cardElevation="5dp"
+        android:outlineSpotShadowColor="#F17C06"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="50dp"
         android:id="@+id/card2"
         android:layout_below="@+id/winner">
 
@@ -177,9 +178,9 @@ android:layout_below="@id/rl"
         android:layout_height="wrap_content"
         android:numColumns="3"
 
-        android:horizontalSpacing="0dp"
-
-        android:verticalSpacing="0dp"
+        android:background="@color/gridview_background"
+        android:horizontalSpacing="8dp"
+        android:verticalSpacing="6dp"
         android:gravity="center"/>
     </androidx.cardview.widget.CardView>
 </LinearLayout>

@@ -1,5 +1,6 @@
 package com.devsimplified.xo;
 
+import android.graphics.Path;
 import android.os.Parcel;
 import android.os.Parcelable;
 
@@ -7,6 +8,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
+import android.graphics.Canvas;
+import android.graphics.Paint;
 
 public class Game implements Parcelable {
     public static final int BOARD_SIZE = 9;
@@ -365,5 +368,29 @@ public class Game implements Parcelable {
         return 0;
     }
 
+
+
+
+        // Existing code
+
+        // Method to draw the winner line
+        public void drawWinnerLine(Canvas canvas, int startX, int startY, int endX, int endY, Paint paint) {
+            int cellSize = canvas.getWidth() / 3;
+            int offset = cellSize / 2;
+
+            // Calculate the coordinates of the center of each cell in the winner line
+            int startXCoord = startX * cellSize + offset;
+            int startYCoord = startY * cellSize + offset;
+            int endXCoord = endX * cellSize + offset;
+            int endYCoord = endY * cellSize + offset;
+
+            // Create a path for the line segment
+            Path path = new Path();
+            path.moveTo(startXCoord, startYCoord);
+            path.lineTo(endXCoord, endYCoord);
+
+            // Draw the path using the paint object
+            canvas.drawPath(path, paint);
+        }
 
 }

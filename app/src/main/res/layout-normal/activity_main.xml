@@ -4,21 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context="com.devsimplified.xo.MainActivity">
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/title"
-        android:text="Tic Toc Toe"
-        android:fontFamily="serif"
-        android:textSize="55sp"
-        android:textStyle="bold|italic"
-        android:gravity="center"
-        style=""
-        android:layout_gravity="center"
-        android:textColor="#18ACF1"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="20dp"/>
+    tools:context="com.devsimplified.xo.MainActivity"
+    >
 
     <!-- score and assigned images corner-->
     <RelativeLayout
@@ -150,14 +137,10 @@ android:layout_below="@id/rl"
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_marginTop="@dimen/card_margin_top"
-        android:layout_marginBottom="@dimen/card_margin_bottom"
-
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-android:outlineSpotShadowColor="#FF6F00"
-        app:cardCornerRadius="5dp"
-        app:cardElevation="5dp"
+
         android:id="@+id/card2"
         android:layout_below="@+id/winner">
         <LinearLayout
@@ -169,9 +152,11 @@ android:outlineSpotShadowColor="#FF6F00"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:numColumns="3"
+        android:background="@color/gridview_background"
+
         android:layout_gravity="center"
-        android:horizontalSpacing="4dp"
-        android:verticalSpacing="2dp"
+        android:horizontalSpacing="6dp"
+        android:verticalSpacing="4dp"
        />
         </LinearLayout>
     </androidx.cardview.widget.CardView>

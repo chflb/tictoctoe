@@ -145,6 +145,7 @@ back.setOnClickListener(new View.OnClickListener() {
                 } else {
                     // The game is over, determine the winner
                     if (game.getWinningLine() != null) {
+
                         if (game.getSymbolAtPosition(game.getWinningLine()[0]) == selectedOption) {
                             // Player wins
                             playSound(soundFail);

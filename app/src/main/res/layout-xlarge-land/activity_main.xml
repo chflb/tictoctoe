@@ -5,6 +5,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="horizontal"
+    android:background="#fff"
     tools:context="com.devsimplified.xo.MainActivity"
   >
     <LinearLayout
@@ -12,7 +13,6 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
      >
-
 
         <!-- score and assigned images corner-->
         <RelativeLayout
@@ -144,25 +144,27 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginLeft="240dp"
-        android:layout_marginRight="240dp"
+        android:layout_marginLeft="230dp"
+        android:layout_marginRight="230dp"
 
         android:background="#fff"
         android:layout_marginBottom="10dp"
-android:outlineSpotShadowColor="#FF6F00"
-        app:cardCornerRadius="5dp"
-        app:cardElevation="5dp"
+android:outlineSpotShadowColor="#DCDCDC"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="50dp"
         android:id="@+id/card2"
       >
 
     <GridView
+
         android:id="@+id/gridview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:numColumns="3"
-        android:horizontalSpacing="0dp"
         android:layout_gravity="center"
-        android:verticalSpacing="0dp"
+        android:background="@color/gridview_background"
+        android:horizontalSpacing="10dp"
+        android:verticalSpacing="4dp"
         android:gravity="center"/>
     </androidx.cardview.widget.CardView>
 

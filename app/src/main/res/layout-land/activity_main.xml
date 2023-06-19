@@ -5,6 +5,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="horizontal"
+    android:background="#fff"
     tools:context="com.devsimplified.xo.MainActivity"
     >
 <LinearLayout
@@ -187,8 +188,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:background="#fff"
-        android:outlineSpotShadowColor="#FF6F00"
-        app:cardCornerRadius="5dp"
+        app:cardCornerRadius="10dp"
         app:cardElevation="5dp"
         android:id="@+id/card2"
       >
@@ -198,8 +198,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:numColumns="3"
-        android:horizontalSpacing="0dp"
-        android:verticalSpacing="0dp"
+        android:horizontalSpacing="6dp"
+        android:verticalSpacing="4dp"
+        android:background="@color/gridview_background"
+
         android:gravity="center"/>
     </androidx.cardview.widget.CardView>
 

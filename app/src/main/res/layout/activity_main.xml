@@ -4,27 +4,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context="com.devsimplified.xo.MainActivity">
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/title"
-        android:text="Tic Toc Toe"
-        android:fontFamily="serif"
-        android:textSize="55sp"
-        android:textStyle="bold|italic"
-        android:gravity="center"
-        style=""
-        android:layout_gravity="center"
-        android:textColor="#18ACF1"
-        android:layout_marginTop="50dp"
-        android:layout_marginBottom="30dp"/>
+    tools:context="com.devsimplified.xo.MainActivity"
+   >
 
     <!-- score and assigned images corner-->
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="70dp"
+        android:layout_marginTop="30dp"
         android:layout_marginBottom="50dp"
         android:padding="20dp"
         android:id="@+id/rl"
@@ -155,9 +142,7 @@ android:layout_below="@id/rl"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-android:outlineSpotShadowColor="#FF6F00"
-        app:cardCornerRadius="5dp"
-        app:cardElevation="5dp"
+
         android:id="@+id/card2"
         android:layout_below="@+id/winner">
         <LinearLayout
@@ -170,8 +155,9 @@ android:outlineSpotShadowColor="#FF6F00"
         android:layout_height="wrap_content"
         android:numColumns="3"
         android:layout_gravity="center"
-        android:horizontalSpacing="4dp"
-        android:verticalSpacing="2dp"
+        android:background="@color/gridview_background"
+        android:horizontalSpacing="6dp"
+        android:verticalSpacing="4dp"
        />
         </LinearLayout>
     </androidx.cardview.widget.CardView>
@@ -184,13 +170,12 @@ android:outlineSpotShadowColor="#FF6F00"
 
 
            <ImageView
-               android:layout_width="wrap_content"
-               android:layout_height="wrap_content"
+               android:layout_width="70dp"
+               android:layout_height="70dp"
                android:src="@drawable/restart"
                android:elevation = "40dp"
                android:id="@+id/restart"
-               android:scaleY=".5"
-               android:scaleX=".5"
+
 
                android:visibility="invisible"
                android:layout_marginLeft="30dp"
@@ -199,12 +184,11 @@ android:outlineSpotShadowColor="#FF6F00"
 
 
            <ImageView
-               android:layout_width="wrap_content"
-               android:layout_height="wrap_content"
+               android:layout_width="70dp"
+               android:layout_height="70dp"
                android:src="@drawable/back"
                android:elevation = "40dp"
-               android:scaleY=".5"
-               android:scaleX=".5"
+
                android:layout_alignParentBottom="true"
                android:layout_alignParentRight="true"
                android:layout_marginRight="@dimen/card_margin_lef"
