@@ -133,20 +133,21 @@ android:layout_below="@id/rl"
 
       >
     <androidx.cardview.widget.CardView
-
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:layout_marginTop="@dimen/card_margin_top"
-        android:layout_marginBottom="@dimen/card_margin_bottom"
-
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
         android:layout_centerInParent="true"
-        app:cardCornerRadius="5dp"
+        android:layout_margin="10dp"
+        android:outlineSpotShadowColor="#AFB42B"
+        app:cardCornerRadius="10dp"
+        android:background="#fff"
         app:cardElevation="5dp"
         android:id="@+id/card2"
         android:layout_below="@+id/winner">
-        <LinearLayout
+
+    <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center">

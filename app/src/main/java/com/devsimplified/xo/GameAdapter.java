@@ -4,7 +4,9 @@ import android.content.Context;
 import android.content.res.Configuration;
 import android.graphics.Canvas;
 import android.graphics.Color;
+import android.graphics.LinearGradient;
 import android.graphics.Paint;
+import android.graphics.Shader;
 import android.util.DisplayMetrics;
 import android.view.View;
 import android.view.ViewGroup;
@@ -78,12 +80,12 @@ public class GameAdapter extends BaseAdapter {
 
                 } else if (screenSize == Configuration.SCREENLAYOUT_SIZE_LARGE) {
                     // large screen size
-                    desiredSize = (int) (Math.min(screenWidth, screenHeight) / 3.4); // Adjust divisor for desired size
+                    desiredSize = (int) (Math.min(screenWidth, screenHeight) / 3); // Adjust divisor for desired size
                     imageView.setScaleX(0.5F);
                     imageView.setScaleY(0.5F);
                 } else {
                     // small or normal screen size
-                    desiredSize = (int) (Math.min(screenWidth, screenHeight) / 3.3); // Adjust divisor for desired size
+                    desiredSize = (int) (Math.min(screenWidth, screenHeight) / 3.46); // Adjust divisor for desired size
                     imageView.setScaleX(0.5F);
                     imageView.setScaleY(0.5F);
                 }
@@ -101,7 +103,7 @@ public class GameAdapter extends BaseAdapter {
                     imageView.setScaleY(0.5F);
                 } else {
                     // small or normal screen size
-                    desiredSize = (int) (Math.min(screenWidth, screenHeight) / 3.01); // Adjust divisor for desired size
+                    desiredSize = (int) (Math.min(screenWidth, screenHeight) / 3.2); // Adjust divisor for desired size
                     imageView.setScaleX(0.5F);
                     imageView.setScaleY(0.5F);
                 }
@@ -268,11 +270,10 @@ public class GameAdapter extends BaseAdapter {
         }
 
 
-
         private void drawWinningLine(Canvas canvas) {
             int cellWidth = getWidth();
             int cellHeight = getHeight();
-            int lineColor = getResources().getColor(android.R.color.holo_green_light);
+            int lineColor = getResources().getColor(R.color.line_color);
             int lineWidth = getResources().getDimensionPixelSize(R.dimen.winning_line_width);
 
             int[] winningLine = game.getWinningLine();
@@ -292,19 +293,19 @@ public class GameAdapter extends BaseAdapter {
                     // Horizontal line
                     startX = 0;
                     startY = cellHeight / 2;
-                    endX = cellWidth;
+                    endX = cellWidth+1;
                     endY = startY;
                 } else if (startColumn == endColumn) {
                     // Vertical line
                     startX = cellWidth / 2;
                     startY = 0;
                     endX = startX;
-                    endY = cellHeight;
+                    endY = cellHeight+1;
                 }  else if (startColumn > endColumn) {
                 // Diagonal line (left to right)
                 startX = 0;
-                startY = cellHeight;
-                endX = cellWidth;
+                startY = cellHeight+1;
+                endX = cellWidth+1;
                 endY = 0;
             } else {
                 // Diagonal line (right to left)
@@ -313,14 +314,22 @@ public class GameAdapter extends BaseAdapter {
                 endX = cellWidth;
                 endY = cellHeight;
             }
-                // Draw the winning line
+                // Define the gradient colors
+                int startColor = getResources().getColor(R.color.golden_start_color);
+                int endColor = getResources().getColor(R.color.golden_end_color);
+
+                // Create a linear gradient
+                Shader shader = new LinearGradient(startX, startY, endX, endY, startColor, endColor, Shader.TileMode.CLAMP);
+
+                // Create the paint object with gradient
                 Paint paint = new Paint();
-                paint.setColor(lineColor);
                 paint.setStrokeWidth(lineWidth);
+                paint.setShader(shader);
                 canvas.drawLine(startX, startY, endX, endY, paint);
             }
 
         }
+
 
     }
 }
