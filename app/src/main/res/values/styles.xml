@@ -7,4 +7,15 @@
     </style>
 
 
+    <style name="AppTheme.Custom" parent="Theme.AppCompat.Light">
+        <item name="android:windowBackground">@color/dark_background_color</item>
+    </style>
+
+    <style name="AppTheme.Light" parent="Theme.AppCompat">
+        <item name="android:windowBackground">@color/light_background_color</item>
+    </style>
+
+    <color name="light_background_color">#FFFFFF</color>
+    <color name="dark_background_color">#860144A6</color>
+    <color name="dark_background_color2">#863AD8EC</color>
 </resources>

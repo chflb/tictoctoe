@@ -219,21 +219,7 @@ public class GameAdapter extends BaseAdapter {
             // Draw O symbol logic here
         }
 
-        private void drawWinningLine(Canvas canvas) {
-            int gridWidth = getWidth();
-            int gridHeight = getHeight();
-            int lineColor = getResources().getColor(android.R.color.holo_blue_light);
-            int lineWidth = getResources().getDimensionPixelSize(R.dimen.winning_line_width);
 
-            // Calculate the line position to be drawn within the grid
-            int lineY = (int) (gridHeight * 0.5f);
-
-            // Draw the winning line across the grid horizontally
-            Paint paint = new Paint();
-            paint.setColor(lineColor);
-            paint.setStrokeWidth(lineWidth);
-            canvas.drawLine(0, lineY, gridWidth, lineY, paint);
-        }
 
 
     }
@@ -273,7 +259,7 @@ public class GameAdapter extends BaseAdapter {
         private void drawWinningLine(Canvas canvas) {
             int cellWidth = getWidth();
             int cellHeight = getHeight();
-            int lineColor = getResources().getColor(R.color.line_color);
+           // int lineColor = getResources().getColor(R.color.line_color);
             int lineWidth = getResources().getDimensionPixelSize(R.dimen.winning_line_width);
 
             int[] winningLine = game.getWinningLine();
