@@ -293,9 +293,17 @@ back.setOnClickListener(new View.OnClickListener() {
             return true;
         } else*/
         if (itemId == R.id.action_policy) {
-            String policyUrl = "https://www.iubenda.com/privacy-policy/96302661";
+           /* String policyUrl = "https://www.iubenda.com/privacy-policy/96302661";
             Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(policyUrl));
-            startActivity(browserIntent);
+            startActivity(browserIntent);*/
+
+            TextView privacyPolicyTextView = findViewById(R.id.privacy_policy);
+            String  privacyPolicyText="This application does not collect or store personal data." +
+                    " We are committed to safeguarding your privacy. " +
+                    "If you installed this application from Google Play, " +
+                    "please note that Google Play Services may collect some personal data." +
+                    " You can review Google Play Services' privacy policy for more information https://policies.google.com/privacy.";
+            privacyPolicyTextView.setText(privacyPolicyText);
             return true;
         }
 
