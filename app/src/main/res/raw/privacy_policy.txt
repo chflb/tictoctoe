@@ -1,0 +1,15 @@
+Privacy Policy of xo-tic-tac-toe:
+
+To receive information about Personal Data, the purposes, and the parties with whom it is shared, please contact the Owner.
+
+Owner and Data Controller:
+
+Owner's contact email: devsimplifiedportal@gmail.com
+
+Data Collection:
+This application does not collect or store personal data.
+We are committed to safeguarding your privacy.
+If you installed this application from Google Play, please note that Google Play Services may collect some personal data.
+You can review Google Play Services' privacy policy for more information at https://policies.google.com/privacy.
+
+

@@ -297,13 +297,7 @@ back.setOnClickListener(new View.OnClickListener() {
             Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(policyUrl));
             startActivity(browserIntent);*/
 
-            TextView privacyPolicyTextView = findViewById(R.id.privacy_policy);
-            String  privacyPolicyText="This application does not collect or store personal data." +
-                    " We are committed to safeguarding your privacy. " +
-                    "If you installed this application from Google Play, " +
-                    "please note that Google Play Services may collect some personal data." +
-                    " You can review Google Play Services' privacy policy for more information https://policies.google.com/privacy.";
-            privacyPolicyTextView.setText(privacyPolicyText);
+            startActivity(new Intent(getApplicationContext(), PrivacyPolicy.class));
             return true;
         }
 
